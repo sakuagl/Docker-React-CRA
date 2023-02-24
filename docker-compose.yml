@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  front:
+    build: ./
+    container_name: front
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - '3000:3000'
+    command: sh -c 'cd react-app && yarn start'
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
